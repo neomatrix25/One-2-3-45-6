@@ -22,7 +22,7 @@ def stage1_run(model, device, exp_dir,
     os.makedirs(stage1_dir, exist_ok=True)
 
     # stage 1: generate 4 views at the same elevation as the input
-    output_ims = predict_stage1_gradio(model, input_im, save_path=stage1_dir, adjust_set=list(range(16)), device=device, ddim_steps=ddim_steps, scale=scale)
+    output_ims = predict_stage1_gradio(model, input_im, save_path=stage1_dir, adjust_set=list(range(36)), device=device, ddim_steps=ddim_steps, scale=scale)
     
     # stage 2 for the first image
     # infer 4 nearby views for an image to estimate the polar angle of the input
