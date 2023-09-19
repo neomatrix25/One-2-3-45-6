@@ -106,8 +106,11 @@ def predict_stage1_gradio(model, raw_im, save_path = "", adjust_set=[], device="
     input_im = input_im * 2 - 1
 
     # stage 1: 8
-    delta_x_1_8 = [0] * 4 + [30] * 4 + [-30] * 4
-    delta_y_1_8 = [0+90*(i%4) if i < 4 else 30+90*(i%4) for i in range(8)] + [30+90*(i%4) for i in range(4)]
+  #   delta_x_1_8 = [0] * 4 + [30] * 4 + [-30] * 4
+   #  delta_y_1_8 = [0+90*(i%4) if i < 4 else 30+90*(i%4) for i in range(8)] + [30+90*(i%4) for i in range(4)]
+
+    delta_y_1_8 = [0] * 36  # No rotation around the x-axis
+delta_x_1_8 = [10 * i for i in range(36)]  # Rotating 10 degrees each time around the y-axis
 
     ret_imgs = []
     sampler = DDIMSampler(model)
